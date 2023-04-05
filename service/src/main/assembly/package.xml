@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly>
+    <id>bin</id>
+    <!-- 最终打包成一个用于发布的zip文件 -->  
+    <formats>  
+        <format>zip</format>  
+    </formats>  
+  
+    <!-- 把依赖的jar包打包进zip的lib目录下-->  
+    <dependencySets>  
+        <dependencySet>  
+            <!-- 不使用项目的artifact，第三方jar不要解压，打包进zip文件的lib目录  -->  
+            <useProjectArtifact>false</useProjectArtifact>  
+            <outputDirectory>lib</outputDirectory>  
+            <unpack>false</unpack>  
+        </dependencySet> 
+    </dependencySets>  
+  
+    <fileSets>  
+        <!-- 把项目的配置文件，打包进zip包的config目录下    -->
+        <fileSet>  
+            <directory>${project.basedir}/src/main/resources/config</directory>
+            <outputDirectory>/config</outputDirectory>  
+            <includes>  
+                <include>scf.config</include>
+                <include>scfkey.key</include>
+            </includes>  
+        </fileSet>
+
+        <fileSet>
+            <directory>${project.basedir}/src/main/resources/config</directory>
+            <outputDirectory>/config</outputDirectory>
+        </fileSet>
+
+        <!-- 把项目的配置文件，打包进zip包的根目录下    -->
+        <fileSet>  
+            <directory>${project.basedir}/src/main/resources/config</directory>
+            <outputDirectory></outputDirectory>  
+            <includes>  
+                <include>scf*.xml</include>
+            </includes>  
+        </fileSet> 
+        
+        <!-- 把项目自己编译出来的jar文件，打包进zip文件的根目录 -->  
+        <fileSet>  
+            <directory>${project.build.directory}</directory>
+            <outputDirectory></outputDirectory> 
+            <includes>
+                <include>*.jar</include>  
+            </includes>  
+        </fileSet>  
+        
+        <!-- 把项目自己编译出来的jar文件，打包进zip文件的根目录 -->  
+        <fileSet>  
+            <directory>${project.build.directory}/jar</directory>
+            <outputDirectory></outputDirectory> 
+            <excludes>
+            	<exclude>lib/*.jar</exclude>
+            </excludes>
+            <includes>
+                <include>*.jar</include>  
+            </includes>  
+        </fileSet>  
+    </fileSets>  
+</assembly>  
