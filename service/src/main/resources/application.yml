@@ -1,6 +1,7 @@
 
+#Tomcat
 server:
-  port: 9080
+  port: 8080
 
 # Spring
 spring:
@@ -8,7 +9,7 @@ spring:
     name: codemaker-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cloud_project?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/self_test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: 10010hcj
 
@@ -17,3 +18,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8088/eureka
+
+# log
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread]%-5level-%highlight(%C-%M:%L)-%msg%n'
