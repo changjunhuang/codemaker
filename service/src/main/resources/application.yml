@@ -1,0 +1,19 @@
+
+server:
+  port: 9080
+
+# Spring
+spring:
+  application:
+    name: codemaker-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloud_project?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 10010hcj
+
+# Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8088/eureka

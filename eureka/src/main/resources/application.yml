@@ -1,0 +1,24 @@
+
+# Tomcat
+server:
+  port: 8088
+
+# Spring
+spring:
+  application:
+    name: codemaker-eureka  # 应用名称
+
+# Eureka
+eureka:
+  instance:
+    hostname: localhost #域名映射
+  client:
+    register-with-eureka: false #往eureka上注册自己，默认为true
+    fetch-registry: false #单节点的eureka server不需要同步其他的 eureka service节点数据，设置为false
+    healthcheck:
+      enabled: true
+    sevice-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+  server:
+    enable-self-preservation: true  #是否开启自我保护模式，默认为true。
+    eviction-interval-timer-in-ms: 10000  #续期时间，即扫描失效服务的间隔时间（缺省为60*1000ms）

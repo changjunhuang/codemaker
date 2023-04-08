@@ -3,12 +3,52 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/File Header.txt.ft">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/a.dummy">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../Maven/apache-maven-3.5.2/conf/settings-local.xml">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/codemaker.iml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/eureka/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/eureka/src/main/java/com/self/eureka/EurekaApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/eureka/src/main/resources/application.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/eureka/src/main/resources/config_offline/application.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/eureka/src/main/resources/config_offline/applicationContext.yml">
           <value>
             <set />
           </value>
@@ -23,12 +63,92 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/service/src/main/java/com/self/codemaker/ServiceApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/service/src/main/java/com/self/codemaker/a.java">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/service/src/main/java/com/self/codemaker/annotation/EnumCheck.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/service/src/main/java/com/self/codemaker/annotation/EnumCheckValidator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/service/src/main/java/com/self/codemaker/annotation/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/service/src/main/java/com/self/codemaker/annotation/a.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/service/src/main/java/com/self/codemaker/dao/a.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/service/src/main/java/com/self/codemaker/web/ServiceApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/service/src/main/java/com/self/codemaker/web/SpringApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/service/src/main/resources/application.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/service/src/main/resources/config_offline/applicationContext.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/zuul/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/zuul/src/main/java/com/self/zuul/ZuulApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/zuul/src/main/resources/application.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../workspace/fundraiser/contract/src/main/java/com/bj58/fbu/loan/fundraiser/annotation/InterfaceTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../workspace/fundraiser/contract/src/main/java/com/bj58/fbu/loan/fundraiser/annotation/SystemConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../workspace/fundraiser/contract/src/main/java/com/bj58/fbu/loan/fundraiser/annotation/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../workspace/fundraiser/service/src/main/java/com/bj58/fbu/loan/fundraiser/remote/RiskReportRemoteService.java">
           <value>
             <set />
           </value>

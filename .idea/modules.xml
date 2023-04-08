@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/codemaker.iml" filepath="$PROJECT_DIR$/.idea/codemaker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka/codemaker-eureka.iml" filepath="$PROJECT_DIR$/eureka/codemaker-eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/codemaker-service.iml" filepath="$PROJECT_DIR$/service/codemaker-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zuul/codemaker-zuul.iml" filepath="$PROJECT_DIR$/zuul/codemaker-zuul.iml" />
     </modules>
   </component>
 </project>
