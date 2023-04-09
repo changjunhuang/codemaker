@@ -1,11 +1,7 @@
 package com.self.codemaker.dao;
 
-import ch.qos.logback.classic.db.names.TableName;
 import com.self.codemaker.model.Department;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 

@@ -10,8 +10,8 @@ import java.lang.annotation.Target;
 /**
  * @author huangchangjun
  */
-@Target({ElementType.FIELD, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.FIELD, ElementType.ANNOTATION_TYPE})
 @Constraint(validatedBy = EnumCheckValidator.class)
 public @interface EnumCheck {
 

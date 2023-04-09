@@ -1,16 +1,17 @@
 package com.self.codemaker.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.self.codemaker.annotation.MethodLog;
 import com.self.codemaker.dao.DepartmentMapper;
 import com.self.codemaker.model.Department;
+import com.self.codemaker.vo.DepartmentVO;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author huangchangjun
@@ -23,17 +24,16 @@ public class DepartmentController {
     @Autowired
     private DepartmentMapper departmentMapper;
 
-    @GetMapping("/selectDepartmentByName")
-    private String selectDepartmentByName(@RequestParam String name) {
-        if (StringUtils.isBlank(name)) {
-            log.info("输入的部门名称是空");
+    @MethodLog
+    @PostMapping("/selectDepartmentByName")
+    public String selectDepartmentByName(@RequestBody @Valid DepartmentVO departmentVO) {
+        if (Objects.isNull(departmentVO)) {
+            log.info("入参是空");
             return null;
         }
 
-        List<Department> departmentList = departmentMapper.selectListByName(name);
+        List<Department> departmentList = departmentMapper.selectListByName(departmentVO.getName());
         String result = JSONObject.toJSONString(departmentList);
-
-        log.info("查询结果为 = {}", result);
         return result;
     }
 }
