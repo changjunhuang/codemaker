@@ -13,6 +13,15 @@ spring:
     username: root
     password: 10010hcj
 
+# Mybatis
+mybatis-plus:
+  mapper-locations: classpath*:/mybatis/mapper/*.xml
+  type-aliases-package: com.self.codemaker.model
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
+    map-underscore-to-camel-case: true  # 该配置就是将带有下划线的表字段映射为驼峰格式的实体类属性
+
+
 # Eureka
 eureka:
   client:
@@ -23,3 +32,5 @@ eureka:
 logging:
   pattern:
     console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread]%-5level-%highlight(%C-%M:%L)-%msg%n'
+  level:
+    com.self.codemaker.dao: DEBUG # 包路径为mapper文件包路径

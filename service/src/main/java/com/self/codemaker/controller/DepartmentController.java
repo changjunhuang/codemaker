@@ -6,6 +6,7 @@ import com.self.codemaker.dao.DepartmentMapper;
 import com.self.codemaker.model.Department;
 import com.self.codemaker.vo.DepartmentVO;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,5 +36,17 @@ public class DepartmentController {
         List<Department> departmentList = departmentMapper.selectListByName(departmentVO.getName());
         String result = JSONObject.toJSONString(departmentList);
         return result;
+    }
+
+    @MethodLog
+    @PostMapping("/addDepartment")
+    public void addDepartment(@RequestBody DepartmentVO departmentVO) {
+        Department department = new Department();
+        BeanUtils.copyProperties(departmentVO, department);
+
+        int result = departmentMapper.insert(department);
+        if (result == 0) {
+            log.error("新记录插入失败");
+        }
     }
 }

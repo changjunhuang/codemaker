@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import java.util.Date;
+
 /**
  * 部门VO
  *
@@ -30,4 +32,14 @@ public class DepartmentVO {
     @NotEmpty(message = "department name为空")
     @EnumCheck(enumClass = DepartmentEnum.class, message = "department name不合法")
     private String name;
+
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
 }
