@@ -18,7 +18,7 @@ import java.util.Objects;
 @Component
 public class RedisUtil {
 
-//    @Autowired
+    @Autowired
     private GenericObjectPool<StatefulRedisConnection<String, String>> connectionPool;
 
     private static final String LOCK_SUCCESS = "OK";
