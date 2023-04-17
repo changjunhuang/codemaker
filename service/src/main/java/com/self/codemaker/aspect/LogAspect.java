@@ -55,7 +55,7 @@ public class LogAspect {
     @AfterReturning(value = "logAspect()", returning = "returnValue")
     public void afterLog(JoinPoint joinPoint, Object returnValue) {
         //  返回出参
-        log.info("Response params :" + returnValue);
+        log.info("Response params :" + JSON.toJSONString(returnValue));
         //  方法执行结束
         String methodName = joinPoint.getSignature().getName();
         log.info("------------ Method name is " + methodName + ",end ------------");
