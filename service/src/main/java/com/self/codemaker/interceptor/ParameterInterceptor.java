@@ -37,7 +37,7 @@ public class ParameterInterceptor implements Interceptor {
         }
         if (SqlCommandType.UPDATE.equals(type)) {
             // 设置  update time的值
-            metaObject.setValue("updateTime", new Date());
+            metaObject.setValue("parameterObject.updateTime", new Date());
         }
         // 执行目标方法
         return invocation.proceed();
