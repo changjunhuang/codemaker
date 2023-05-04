@@ -1,6 +1,7 @@
 package com.self.codemaker.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.self.codemaker.annotation.DataSource;
 import com.self.codemaker.annotation.MethodLog;
 import com.self.codemaker.dao.DepartmentMapper;
 import com.self.codemaker.model.Department;
@@ -49,4 +50,18 @@ public class DepartmentController {
             log.error("新记录插入失败");
         }
     }
+
+    @MethodLog
+    @DataSource("slave")
+    @PostMapping("/addDepartmentToSlave")
+    public void addDepartmentToSlave(@RequestBody DepartmentVO departmentVO) {
+        Department department = new Department();
+        BeanUtils.copyProperties(departmentVO, department);
+
+        int result = departmentMapper.insert(department);
+        if (result == 0) {
+            log.error("新记录插入失败");
+        }
+    }
+
 }
