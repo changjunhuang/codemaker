@@ -1,7 +1,7 @@
 package com.self.codemaker.aspect;
 
 import com.self.codemaker.annotation.DataSource;
-import com.self.codemaker.commons.DynamicDataSourceContextHolder;
+import com.self.codemaker.commons.datasource.DynamicDataSourceContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;

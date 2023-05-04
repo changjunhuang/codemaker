@@ -1,4 +1,4 @@
-package com.self.codemaker.commons;
+package com.self.codemaker.commons.datasource;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
