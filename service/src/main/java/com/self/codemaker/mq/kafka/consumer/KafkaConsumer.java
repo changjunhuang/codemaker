@@ -17,11 +17,21 @@ public class KafkaConsumer {
 
     //  不指定group，默认取yml里配置的
     @KafkaListener(topics = {"codemaker"})
-    public void onMessage1(ConsumerRecord<?, ?> consumerRecord) {
+    public void onMessage(ConsumerRecord<?, ?> consumerRecord) {
         Optional<?> optional = Optional.ofNullable(consumerRecord.value());
         if (optional.isPresent()) {
             Object msg = optional.get();
-            log.info("message:{}", msg);
+            log.info("这是第一个消费者组kafka-group, message:{}", msg);
+        }
+    }
+
+    //  指定group，多个消费者组消费同一个消息
+    @KafkaListener(groupId = "kafka-group-2", topics = {"codemaker"})
+    public void handleMessage(ConsumerRecord<?, ?> consumerRecord) {
+        Optional<?> optional = Optional.ofNullable(consumerRecord.value());
+        if (optional.isPresent()) {
+            Object msg = optional.get();
+            log.info("这是第二个消费者组kafka-group-2,message:{}", msg);
         }
     }
 }
