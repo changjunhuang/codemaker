@@ -1,0 +1,120 @@
+package com.self.codemaker.data;
+
+import com.self.codemaker.enums.ApiResponseCode;
+import com.self.codemaker.excption.ApiServiceException;
+
+/**
+ * @author huangchangjun
+ * @date 2023/07/09
+ */
+public class ApiResponse<T> {
+
+    /**
+     * 响应码
+     */
+    protected String code;
+
+    /**
+     * 响应信息
+     */
+    protected String message;
+
+    /**
+     * 数据
+     */
+    protected T data;
+
+    private String traceId;
+
+    public ApiResponse() {
+    }
+
+    public static <T> ApiResponse<T> buildSuccess() {
+        ApiResponse<T> response = new ApiResponse<>();
+        response.code = ApiResponseCode.SUCCESS.getCode();
+        response.message = ApiResponseCode.SUCCESS.getMessage();
+        return response;
+    }
+
+    public static <T> ApiResponse<T> buildSuccess(T data) {
+        ApiResponse<T> response = new ApiResponse<>();
+        response.data = data;
+        response.code = ApiResponseCode.SUCCESS.getCode();
+        response.message = ApiResponseCode.SUCCESS.getMessage();
+        return response;
+    }
+
+    /**
+     * 带异常判断的返回,配合校验
+     *
+     * @param apiResponseCode
+     * @param e
+     * @param <T>
+     * @return
+     */
+    public static <T> ApiResponse<T> buildFailure(ApiResponseCode apiResponseCode, Throwable e) {
+        if (e instanceof ApiServiceException) {
+            return ((ApiServiceException) e).getResponse();
+        } else if (e instanceof IllegalArgumentException) {
+            //  处理Assert出的异常
+            return ApiResponse.buildFailure(ApiResponseCode.PARAM_ERROR.setMessage(e.getMessage()));
+        } else {
+            ApiResponse<T> response = new ApiResponse<>();
+            response.code = apiResponseCode.getCode();
+            response.message = apiResponseCode.getMessage();
+            return response;
+        }
+    }
+
+    public static <T> ApiResponse<T> buildFailure(ApiResponseCode apiResponseCode) {
+        ApiResponse<T> response = new ApiResponse<>();
+        response.code = apiResponseCode.getCode();
+        response.message = apiResponseCode.getMessage();
+        return response;
+    }
+
+    public static <T> ApiResponse<T> buildFailure(String errorCode, String errorMsg) {
+        ApiResponse<T> response = new ApiResponse<>();
+        response.code = errorCode;
+        response.message = errorMsg;
+        return response;
+    }
+
+    public String getTraceId() {
+        return this.traceId;
+    }
+
+    public void setTraceId(String traceId) {
+        this.traceId = traceId;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getMessage() {
+        return this.message;
+    }
+
+    public ApiResponse<T> setMessage(String message) {
+        this.message = message;
+        return this;
+    }
+
+    public T getData() {
+        return this.data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "ApiResponse{" + "traceId='" + traceId + '\'' + ", code='" + code + '\'' + ", message='" + message + '\'' + ", data=" + data + '}';
+    }
+}

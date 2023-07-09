@@ -1,9 +1,11 @@
 package com.self.codemaker.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.self.codemaker.annotation.DataSource;
 import com.self.codemaker.annotation.MethodLog;
 import com.self.codemaker.dao.DepartmentMapper;
+import com.self.codemaker.data.ApiResponse;
 import com.self.codemaker.model.Department;
 import com.self.codemaker.vo.DepartmentVO;
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +39,17 @@ public class DepartmentController {
         List<Department> departmentList = departmentMapper.selectListByName(departmentVO.getName());
         String result = JSONObject.toJSONString(departmentList);
         return result;
+    }
+
+    @MethodLog
+    @PostMapping("/selectDepartmentByNameV2")
+    public ApiResponse<List<Department>> selectDepartmentByNameV2(@RequestBody @Valid DepartmentVO departmentVO) {
+        if (Objects.isNull(departmentVO)) {
+            log.info("入参是空");
+            return null;
+        }
+        List<Department> departmentList = departmentMapper.selectListByName(departmentVO.getName());
+        return ApiResponse.buildSuccess(departmentList);
     }
 
     @MethodLog

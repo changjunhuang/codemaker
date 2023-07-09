@@ -2,6 +2,7 @@ package com.self.codemaker.aspect;
 
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
@@ -55,7 +56,8 @@ public class LogAspect {
     @AfterReturning(value = "logAspect()", returning = "returnValue")
     public void afterLog(JoinPoint joinPoint, Object returnValue) {
         //  返回出参
-        log.info("Response params :" + JSON.toJSONString(returnValue));
+        String response = JSON.toJSONString(returnValue);
+        log.info("Response params :" + StringEscapeUtils.unescapeJava(response));
         //  方法执行结束
         String methodName = joinPoint.getSignature().getName();
         log.info("------------ Method name is " + methodName + ",end ------------");
