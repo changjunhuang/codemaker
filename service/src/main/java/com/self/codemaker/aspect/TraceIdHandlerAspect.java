@@ -21,7 +21,7 @@ import java.util.UUID;
 @Slf4j
 @Aspect
 @Component
-public class JobHandlerAspect {
+public class TraceIdHandlerAspect {
 
     @Before("execution (* com.self.codemaker.mq..*.*(..)) || execution (* com.self.codemaker.thread..*.*(..))")
     public void beforeFetchDataMethod(JoinPoint joinPoint) {
