@@ -14,6 +14,7 @@ import java.util.Objects;
  */
 @Slf4j
 @RestController
+@RequestMapping("/codemaker")
 public class HelloWorldController {
 
     @GetMapping("/say/hello")
