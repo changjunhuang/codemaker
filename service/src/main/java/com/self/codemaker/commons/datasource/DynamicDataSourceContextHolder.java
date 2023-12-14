@@ -10,7 +10,7 @@ import java.util.List;
 public class DynamicDataSourceContextHolder {
 
     /**
-     * 使用ThreadLocal维护变量
+     * 使用ThreadLocal维护变量，存储当前数据源ID
      */
     private static final ThreadLocal<String> CONTEXT_HOLDER = new ThreadLocal<>();
 
@@ -29,6 +29,7 @@ public class DynamicDataSourceContextHolder {
     }
 
     public static void clearDataSourceType() {
+        // ThreadLocal 变量使用完成需要手动remove，否则会导致内存泄露
         CONTEXT_HOLDER.remove();
     }
 
