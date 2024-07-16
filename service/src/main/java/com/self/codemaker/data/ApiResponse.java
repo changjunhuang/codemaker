@@ -2,11 +2,13 @@ package com.self.codemaker.data;
 
 import com.self.codemaker.enums.ApiResponseCode;
 import com.self.codemaker.excption.ApiServiceException;
+import lombok.Data;
 
 /**
  * @author huangchangjun
  * @date 2023/07/09
  */
+@Data
 public class ApiResponse<T> {
 
     /**
@@ -78,39 +80,6 @@ public class ApiResponse<T> {
         response.code = errorCode;
         response.message = errorMsg;
         return response;
-    }
-
-    public String getTraceId() {
-        return this.traceId;
-    }
-
-    public void setTraceId(String traceId) {
-        this.traceId = traceId;
-    }
-
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getMessage() {
-        return this.message;
-    }
-
-    public ApiResponse<T> setMessage(String message) {
-        this.message = message;
-        return this;
-    }
-
-    public T getData() {
-        return this.data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
     }
 
     @Override

@@ -8,11 +8,22 @@ spring:
     name: codemaker-service
 
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    druid: ## druid数据库连接池的基本初始化属性
-      initial-size: 5 # 连接池初始化的大小
-      min-idle: 1 # 最小空闲的线程数
-      max-active: 20 # 最大活动的线程数
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    druid: ## druid数据库连接池的基本初始化属性
+#      initial-size: 5 # 连接池初始化的大小
+#      min-idle: 1 # 最小空闲的线程数
+#      max-active: 20 # 最大活动的线程数
+
+    # hikari连接池
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 0
+      maximum-pool-size: 20
+      connection-timeout: 30000
+      idle-timeout: 10000
+      auto-commit: true
+      pool-name: HikariCP
+      connection-test-query: SELECT 1
 
     mysql-master: ## 主库写
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -47,6 +58,7 @@ spring:
     bootstrap-servers: 127.0.0.1:9092  # Kafka的服务器地址
     listener:
       missing-topics-fatal: false
+
     producer: # producer 生产者
       retries: 0 # 重试次数
       acks: 1 # 应答级别:多少个分区副本备份完成时向生产者发送ack确认(可选0、1、all/-1)
@@ -69,6 +81,26 @@ spring:
       #      value-deserializer: com.itheima.demo.config.MyDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
+# Activity
+  activiti:
+#    false:默认，数据库表不变，但是如果版本不对或者缺失表会抛出异常（生产使用）
+#    true:表不存在，自动创建（开发使用）
+#    create_drop: 启动时创建，关闭时删除表（测试使用）
+#    drop_create: 启动时删除表,在创建表 （不需要手动关闭引擎）
+    database-schema-update: true
+    database-schema: activiti_test
+#    none：不保存任何历史数据，流程中这是最高效的
+#    activity：只保存流程实例和流程行为
+#    audit：除了activity，还保存全部的流程任务以及其属性，audit为history默认值
+#    full：除了audit、还保存其他全部流程相关的细节数据，包括一些流程参数
+    history-level: full
+    db-history-used: true  # 检查历史表是否存在，activities7 默认不开启历史表
+    db-identity-used: false # 检查身份信息表是否存在
+    check-process-definitions: false # 自动部署验证设置:true-开启（默认）、false-关闭
+    deployment-mode: never-fail # 关闭自动部署
+    async-executor-activate: false # 解决频繁查询SQL问题
+    job-executor-activate: false #启用异步执行器
+
 # Mybatis
 mybatis-plus:
   mapper-locations: classpath*:/mybatis/mapper/*.xml,/mybatis/*.xml  # 配置MyBatis-Plus扫描Mapper文件的位置
@@ -76,7 +108,6 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
     map-underscore-to-camel-case: true  # 该配置就是将带有下划线的表字段映射为驼峰格式的实体类属性
-
 
 # Eureka
 eureka:

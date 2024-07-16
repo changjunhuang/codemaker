@@ -5,11 +5,14 @@ import com.self.codemaker.enums.ApiResponseCode;
 import lombok.Getter;
 
 /**
+ * api层，controller层使用
+ *
  * @author huangchangjun
  * @date 2023/7/9
  */
 @Getter
 public class ApiServiceException extends BaseApiException {
+
     ApiResponse response;
 
     public <T> ApiServiceException(ApiResponse<T> response) {
