@@ -101,6 +101,19 @@ spring:
     async-executor-activate: false # 解决频繁查询SQL问题
     job-executor-activate: false #启用异步执行器
 
+# ElasticSearch
+  elasticsearch:
+    rest:
+      uris: http://localhost:9200 # 设置Elastic Search的连接地址
+    username: elastic # 设置Elastic Search的用户名
+    password: 10010hcj # 设置Elastic Search的密码
+    connection-request-timeout: 5000 # 设置连接请求超时时间
+    socket-timeout: 5000 # 设置Socket超时时间
+    max-connections: 100 # 设置最大连接数
+    max-connections-per-route: 10 # 设置每个路由的最大连接数
+    hostname: 127.0.0.1
+    port: 9200
+
 # Mybatis
 mybatis-plus:
   mapper-locations: classpath*:/mybatis/mapper/*.xml,/mybatis/*.xml  # 配置MyBatis-Plus扫描Mapper文件的位置
