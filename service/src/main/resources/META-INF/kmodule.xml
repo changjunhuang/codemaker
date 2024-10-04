@@ -10,12 +10,12 @@
             name:指定ksession名称，可以任意，但是需要唯一
             default:指定当前session是否为默认
         -->
-        <ksession name="myRuleSession" default="false">
-<!--            <listeners>-->
-<!--                <ruleRuntimeEventListener type="org.kie.api.event.rule.DebugRuleRuntimeEventListener"/>-->
-<!--                <processEventListener type="org.drools.core.event.DebugProcessEventListener"/>-->
-<!--                <agendaEventListener type="org.drools.core.event.DebugAgendaEventListener"/>-->
-<!--            </listeners>-->
+        <ksession name="myRuleSession" default="true">
+            <listeners>
+                <ruleRuntimeEventListener type="org.kie.api.event.rule.DebugRuleRuntimeEventListener"/>
+                <processEventListener type="org.drools.core.event.DebugProcessEventListener"/>
+                <agendaEventListener type="org.drools.core.event.DebugAgendaEventListener"/>
+            </listeners>
         </ksession>
 
     </kbase>

@@ -1,0 +1,13 @@
+package rules;
+import com.self.codemaker.model.Department               // 导入类
+
+dialect  "mvel"
+
+// 部门名称规则
+rule "notDepartment"                                      // 规则名，唯一
+    when
+        $department : Department(name != "it" )     //规则的条件部分
+    then
+        $department.setName("互斥规则测试！");
+        System.out.println("互斥规则测试！");
+end

@@ -8,6 +8,4 @@ public interface RuleService {
 
     public String nameRule(String name);
 
-
-    public void rule();
 }

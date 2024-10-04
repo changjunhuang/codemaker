@@ -41,10 +41,4 @@ public class RuleServiceImpl implements RuleService {
         return department.getName();
     }
 
-    @Override
-    public void rule() {
-        KieSession kieSession = kieBase.newKieSession();
-        kieSession.fireAllRules();
-        kieSession.dispose();
-    }
 }
